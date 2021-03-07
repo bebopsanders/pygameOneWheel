@@ -1,13 +1,31 @@
 import pygame as pg
+from settings import *
 
-WIDTH, HEIGHT = 500,600
-FPS = 60
+class Game:
+    def __init__(self):
+        pass
+    def new_game(self):
+        pass
+    def run_game(self):
+        pass
+    def events(self):
+        pass
+    def update(self):
+        pass
+    def draw(self):
+        pass
+    def main_menu(self):
+        pass
+    def game_over(self):
+        pass
+g = Game()
+g.main_menu()
+while g.running:
+    g.new_game()
+    g.game_over()
+pg.quit()
 
-WHITE = (255,25,255)
-BLACK = (0,0,0)
-RED = (255,0,0)
-GREEN = (0,255,0)
-BLUE = (0,0,255)
+# About to put the stuff below into my game class 
 
 pg.init()
 screen = pg.display.set_mode((WIDTH,HEIGHT))
