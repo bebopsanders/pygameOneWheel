@@ -3,17 +3,33 @@ from settings import *
 
 class Game:
     def __init__(self):
-        pass
+        pg.init()
+        pg.display.set_caption(TITLE)
+        self.screen = pg.display.set_mode((WIDTH,HEIGHT))
+        self.clock = pg.time.Clock()
+        self.running = True
     def new_game(self):
-        pass
+        self.all_sprites = pg.sprite.Group()
+        self.run_game()
     def run_game(self):
-        pass
+        self.playing = True
+        while self.playing:
+            self.clock.tick(FPS)
+            self.events()
+            self.update()
+            self.draw()
     def events(self):
-        pass
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                if self.playing:
+                    self.playing = False
+                self.running = False
     def update(self):
-        pass
+        self.all_sprites.update()
     def draw(self):
-        pass
+        self.screen.fill(PURP)
+        self.all_sprites.draw(self.screen)
+        pg.display.flip()
     def main_menu(self):
         pass
     def game_over(self):
@@ -24,22 +40,3 @@ while g.running:
     g.new_game()
     g.game_over()
 pg.quit()
-
-# About to put the stuff below into my game class 
-
-pg.init()
-screen = pg.display.set_mode((WIDTH,HEIGHT))
-clock = pg.time.Clock()
-
-all_sprites = pg.sprite.Group()
-
-running = True
-while running:
-    clock.tick(FPS)
-    screen.fill(WHITE)
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            running = False
-    all_sprites.update()
-    all_sprites.draw()
-    pg.display.flip()
