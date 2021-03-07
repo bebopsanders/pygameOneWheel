@@ -1,5 +1,6 @@
 import pygame as pg
 from settings import *
+from sprites import *
 
 class Game:
     def __init__(self):
@@ -10,6 +11,8 @@ class Game:
         self.running = True
     def new_game(self):
         self.all_sprites = pg.sprite.Group()
+        self.player = Player()
+        self.all_sprites.add(self.player)
         self.run_game()
     def run_game(self):
         self.playing = True
